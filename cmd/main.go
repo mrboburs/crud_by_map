@@ -24,14 +24,14 @@ func main() {
 	handlers := handler.NewHandler(services)
 
 	srv := new(todo.Server)
-	if err := srv.Run(viper.GetString("8000"), handlers.InitRoutes()); err != nil {
+	if err := srv.Run(viper.GetString("8080"), handlers.InitRoutes()); err != nil {
 		log.Fatalf("error occured while running server: %s", err.Error())
 	}
 }
 
 func initConfig() error {
-	viper.SetConfigType("yml")
-	viper.AddConfigPath("./config")
-	viper.SetConfigName("config.yml")
+	// viper.SetConfigType("yaml")
+	viper.AddConfigPath("config")
+	viper.SetConfigName("config")
 	return viper.ReadInConfig()
 }
