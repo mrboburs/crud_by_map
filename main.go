@@ -9,6 +9,19 @@ import (
 
 var myMap = map[string]model.Article{}
 
+func getAll() {
+	fmt.Println(myMap)
+}
+func getById(id int) {
+	for _, val := range myMap {
+		if val.ID == id {
+
+			// fmt.Println(val)
+			fmt.Println(val)
+		}
+	}
+}
+
 func Delete(id int) {
 	for key, val := range myMap {
 		if val.ID == id {
